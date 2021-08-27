@@ -15,12 +15,12 @@
  */
 package io.process.analytics.tools.bpmn.generator;
 
-import org.junit.jupiter.api.Test;
+import static io.process.analytics.tools.bpmn.generator.App.runApp;
+import static io.process.analytics.tools.bpmn.generator.AppTest.*;
 
 import java.io.IOException;
 
-import static io.process.analytics.tools.bpmn.generator.App.runApp;
-import static io.process.analytics.tools.bpmn.generator.AppTest.*;
+import org.junit.jupiter.api.Test;
 
 public class AppFromCsvTest {
 
@@ -46,6 +46,13 @@ public class AppFromCsvTest {
     public void main_generates_bpmn_with_vacation_request_bonita_discovery_data() throws Exception {
         runAndCheckBpmnAndSvgGeneration("csv/VacationRequestBonita/nodes.csv", "csv/VacationRequestBonita/edges.csv",
                 "from_vacation_request_bonita_csv_diagram.bpmn");
+    }
+
+    @Test
+    public void main_generates_bpmn_with_vacation_request_bonita_v2_discovery_data() throws Exception {
+        runAndCheckBpmnAndSvgGeneration("csv/VacationRequestBonita_v2/nodes.csv",
+                "csv/VacationRequestBonita_v2/edges.csv",
+                "from_vacation_request_bonita_v2_csv_diagram.bpmn");
     }
 
     // =================================================================================================================
